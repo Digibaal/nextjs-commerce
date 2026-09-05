@@ -5,7 +5,7 @@ import { GeistSans } from 'geist/font/sans';
 import { getCart } from 'lib/shopify';
 import { ReactNode } from 'react';
 import { Toaster } from 'sonner';
-import './globals.css';
+import '../globals.css';
 import { baseUrl } from 'lib/utils';
 
 const { SITE_NAME } = process.env;

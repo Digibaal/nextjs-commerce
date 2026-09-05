@@ -77,6 +77,12 @@ export async function shopifyFetch<T>({
   query: string;
   variables?: ExtractVariables<T>;
 }): Promise<{ status: number; body: T } | never> {
+  // Zonder Shopify-credentials draait de rest van de site (ManiFlowStations)
+  // gewoon door: we geven een lege respons terug in plaats van te crashen.
+  if (!domain) {
+    return { status: 200, body: { data: {} } as T };
+  }
+
   try {
     const result = await fetch(endpoint, {
       method: 'POST',
@@ -118,8 +124,8 @@ export async function shopifyFetch<T>({
   }
 }
 
-const removeEdgesAndNodes = <T>(array: Connection<T>): T[] => {
-  return array.edges.map((edge) => edge?.node);
+const removeEdgesAndNodes = <T>(array?: Connection<T>): T[] => {
+  return array?.edges?.map((edge) => edge?.node) ?? [];
 };
 
 const reshapeCart = (cart: ShopifyCart): Cart => {
@@ -432,7 +438,7 @@ export async function getProductRecommendations(
     }
   });
 
-  return reshapeProducts(res.body.data.productRecommendations);
+  return reshapeProducts(res.body.data.productRecommendations ?? []);
 }
 
 export async function getProducts({

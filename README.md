@@ -1,3 +1,61 @@
+# ManiFlowStations
+
+Deze repository bevat naast de Next.js Commerce-template het programma en de website van
+**ManiFlowStations** — een persoonlijk ontwikkelingsprogramma dat de bruikbare technieken uit de
+manifestatiewereld overneemt (visioning, future self, identiteit, alignment, mentale simulatie) en
+de pseudowetenschap, het magisch denken en de schuldinductie eruit haalt.
+
+> Je manifesteert een toekomst niet door harder te geloven dat hij eraan komt. Je vergroot de kans
+> erop door helder te krijgen wat je wilt, je gedrag en omgeving daarop af te stemmen, te handelen,
+> feedback te verzamelen en bij te sturen.
+
+- **Website:** `/maniflowstations`
+- **Het programma als één document:** [`docs/ManiFlowStations-programma.md`](docs/ManiFlowStations-programma.md)
+  (ook live op `/maniflowstations/programma`)
+
+## Structuur
+
+| Pad                           | Wat                                                                                              |
+| ----------------------------- | ------------------------------------------------------------------------------------------------ |
+| `lib/maniflow/`               | De enige bron van waarheid: stations, gereedschappen, voorbeelden, positionering, dagprogramma's |
+| `lib/maniflow/document.ts`    | Rendert diezelfde data als één markdown-document                                                 |
+| `app/(maniflow)/`             | De website, met een eigen root-layout en eigen stijl (geen Tailwind, geen Shopify)               |
+| `app/(maniflow)/maniflow.css` | De volledige huisstijl: spoortypografie, hairlines, dag- en nachtbord                            |
+| `components/maniflow/`        | Vertrekbord, routekaart, journaal                                                                |
+| `app/(shop)/`                 | De ongewijzigde Next.js Commerce-demo, met eigen root-layout                                     |
+
+Beide delen zijn aparte root-layouts binnen dezelfde app (route groups). De commerce-URL's zijn
+ongewijzigd; ManiFlowStations leeft onder `/maniflowstations`. Wil je het programma op de
+hoofdpagina zetten, verplaats dan `app/(shop)/page.tsx` naar `app/(shop)/shop/page.tsx` en de
+ManiFlowStations-pagina's een niveau omhoog.
+
+## Ontwikkelen
+
+```bash
+pnpm install
+pnpm dev            # http://localhost:3000/maniflowstations
+pnpm programma      # regenereert docs/ManiFlowStations-programma.md uit lib/maniflow
+```
+
+Shopify-credentials zijn niet nodig voor ManiFlowStations: zonder `SHOPIFY_STORE_DOMAIN` geeft de
+Shopify-laag lege data terug, zodat `next build` gewoon slaagt.
+
+## Pagina's
+
+| Route                              | Inhoud                                                                                   |
+| ---------------------------------- | ---------------------------------------------------------------------------------------- |
+| `/maniflowstations`                | Kernbelofte, vertrekbord, positionering, doelgroep, meetmethode                          |
+| `/maniflowstations/route`          | Routekaart: vier lijnen, twaalf haltes, drie reroute-momenten, depot                     |
+| `/maniflowstations/station/[slug]` | Elk station in tien vaste onderdelen, van Arrival Board tot Departure Note               |
+| `/maniflowstations/uitgangspunten` | Handelingsvermogen zonder schuld: controle, invloed, kans, toeval                        |
+| `/maniflowstations/gereedschap`    | Achttien terugkerende tools en templates, met valkuil per stuk                           |
+| `/maniflowstations/voorbeelden`    | Zes levensgebieden volledig uitgewerkt                                                   |
+| `/maniflowstations/dienstregeling` | 21-, 30- en 42-daagse sporen, de Perronsessie, de weekmeters                             |
+| `/maniflowstations/vormen`         | Uitleveringsvormen, workbookontwerp, slogans                                             |
+| `/maniflowstations/journaal`       | Werkend journaal: routekaart, Evidence Log, weekmeter — lokaal opgeslagen, exporteerbaar |
+
+---
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fcommerce&project-name=commerce&repo-name=commerce&demo-title=Next.js%20Commerce&demo-url=https%3A%2F%2Fdemo.vercel.store&demo-image=https%3A%2F%2Fbigcommerce-demo-asset-ksvtgfvnd.vercel.app%2Fbigcommerce.png&env=COMPANY_NAME,SHOPIFY_REVALIDATION_SECRET,SHOPIFY_STORE_DOMAIN,SHOPIFY_STOREFRONT_ACCESS_TOKEN,SITE_NAME)
 
 # Next.js Commerce
