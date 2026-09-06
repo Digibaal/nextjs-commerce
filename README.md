@@ -15,14 +15,16 @@ de pseudowetenschap, het magisch denken en de schuldinductie eruit haalt.
 
 ## Structuur
 
-| Pad                           | Wat                                                                                              |
-| ----------------------------- | ------------------------------------------------------------------------------------------------ |
-| `lib/maniflow/`               | De enige bron van waarheid: stations, gereedschappen, voorbeelden, positionering, dagprogramma's |
-| `lib/maniflow/document.ts`    | Rendert diezelfde data als één markdown-document                                                 |
-| `app/(maniflow)/`             | De website, met een eigen root-layout en eigen stijl (geen Tailwind, geen Shopify)               |
-| `app/(maniflow)/maniflow.css` | De volledige huisstijl: spoortypografie, hairlines, dag- en nachtbord                            |
-| `components/maniflow/`        | Vertrekbord, routekaart, journaal                                                                |
-| `app/(shop)/`                 | De ongewijzigde Next.js Commerce-demo, met eigen root-layout                                     |
+| Pad                                | Wat                                                                                              |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `lib/maniflow/`                    | De enige bron van waarheid: stations, gereedschappen, voorbeelden, positionering, dagprogramma's |
+| `lib/maniflow/document.ts`         | Rendert diezelfde data als één markdown-document                                                 |
+| `app/(maniflow)/`                  | De website, met een eigen root-layout en eigen stijl (geen Tailwind, geen Shopify)               |
+| `app/(maniflow)/maniflow.css`      | De volledige huisstijl: spoortypografie, hairlines, dag- en nachtbord                            |
+| `components/maniflow/`             | Vertrekbord, routekaart, journaal                                                                |
+| `components/maniflow/diagrams.tsx` | De zeven schema's als inline SVG                                                                 |
+| `public/maniflow/`                 | Eigen beeldmateriaal — zie de LEESMIJ in die map                                                 |
+| `app/(shop)/`                      | De ongewijzigde Next.js Commerce-demo, met eigen root-layout                                     |
 
 Beide delen zijn aparte root-layouts binnen dezelfde app (route groups). De commerce-URL's zijn
 ongewijzigd; ManiFlowStations leeft onder `/maniflowstations`. Wil je het programma op de
