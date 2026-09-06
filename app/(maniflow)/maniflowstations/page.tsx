@@ -6,6 +6,7 @@ import {
   lineColor
 } from 'components/maniflow/bits';
 import { RouteNetwerk } from 'components/maniflow/diagrams';
+import { Brug } from 'components/maniflow/sfeer';
 import {
   audience,
   brand,
@@ -43,6 +44,10 @@ export default function ManiFlowHome() {
           </div>
         </div>
       </section>
+
+      <div className="shell">
+        <Brug />
+      </div>
 
       <div className="shell section">
         <hr className="rule" />

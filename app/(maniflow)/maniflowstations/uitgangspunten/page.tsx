@@ -1,5 +1,6 @@
 import { Annot, Eyebrow } from 'components/maniflow/bits';
 import { InvloedSpectrum } from 'components/maniflow/diagrams';
+import { Perronkap } from 'components/maniflow/sfeer';
 import {
   agencyModel,
   audience,
@@ -37,6 +38,10 @@ export default function Uitgangspunten() {
           gemaakt. Hier niet.
         </p>
       </header>
+
+      <div className="shell">
+        <Perronkap />
+      </div>
 
       <div className="shell">
         <Annot n="01" label="Het vier-vak">

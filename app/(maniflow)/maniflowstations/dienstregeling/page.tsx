@@ -1,4 +1,5 @@
 import { Annot, Eyebrow } from 'components/maniflow/bits';
+import { Vertrekbord } from 'components/maniflow/sfeer';
 import {
   dailySession,
   integration,
@@ -33,6 +34,10 @@ export default function Dienstregeling() {
           krijgt om te antwoorden — en hoeveel energie het van je vraagt.
         </p>
       </header>
+
+      <div className="shell">
+        <Vertrekbord />
+      </div>
 
       {/* ------------------------------------------------------------ sporen */}
       <div className="shell">

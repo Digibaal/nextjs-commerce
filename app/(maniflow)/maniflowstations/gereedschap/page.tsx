@@ -1,4 +1,5 @@
 import { Eyebrow } from 'components/maniflow/bits';
+import { Wisselstraat } from 'components/maniflow/sfeer';
 import { tools } from 'lib/maniflow';
 
 export const metadata = {
@@ -28,6 +29,10 @@ export default function Gereedschap() {
           erger dan geen instrument.
         </p>
       </header>
+
+      <div className="shell">
+        <Wisselstraat />
+      </div>
 
       <div className="shell" style={{ paddingBottom: '3rem' }}>
         {tools.map((t, i) => (

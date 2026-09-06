@@ -1302,3 +1302,71 @@ h2.big {
   background: var(--paper-2);
   overflow: hidden;
 }
+
+/* ========================================================== sfeerbeelden */
+
+.sfeer-frame {
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+  overflow: hidden;
+}
+.sfeer svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.s-sky {
+  stroke: var(--rule);
+  stroke-width: 1;
+  fill: none;
+  opacity: 0.75;
+}
+.s-hair {
+  stroke: var(--rule);
+  stroke-width: 1;
+  fill: none;
+}
+.s-ln {
+  stroke: var(--ink-3);
+  stroke-width: 1;
+  fill: none;
+}
+.s-ln2 {
+  stroke: var(--ink-2);
+  stroke-width: 1;
+  fill: none;
+}
+.s-sig {
+  stroke: var(--signal);
+  stroke-width: 1.4;
+  fill: none;
+}
+.s-sigf {
+  fill: var(--signal);
+}
+.s-amberf {
+  fill: var(--amber);
+}
+.s-solid {
+  fill: var(--ink-3);
+}
+.s-band {
+  fill: var(--paper-3);
+}
+.s-board {
+  fill: var(--paper-3);
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+.s-plate {
+  fill: var(--paper);
+  stroke: var(--ink-3);
+  stroke-width: 1;
+}
+.s-seam {
+  stroke: var(--paper-2);
+  stroke-width: 1;
+  fill: none;
+}

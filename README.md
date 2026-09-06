@@ -23,6 +23,7 @@ de pseudowetenschap, het magisch denken en de schuldinductie eruit haalt.
 | `app/(maniflow)/maniflow.css`      | De volledige huisstijl: spoortypografie, hairlines, dag- en nachtbord                            |
 | `components/maniflow/`             | Vertrekbord, routekaart, journaal                                                                |
 | `components/maniflow/diagrams.tsx` | De zeven schema's als inline SVG                                                                 |
+| `components/maniflow/sfeer.tsx`    | De vijf sfeerbeelden als inline SVG                                                              |
 | `public/maniflow/`                 | Eigen beeldmateriaal — zie de LEESMIJ in die map                                                 |
 | `app/(shop)/`                      | De ongewijzigde Next.js Commerce-demo, met eigen root-layout                                     |
 

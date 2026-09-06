@@ -1,4 +1,5 @@
 import { Eyebrow } from 'components/maniflow/bits';
+import { Bovenleiding } from 'components/maniflow/sfeer';
 import { examples } from 'lib/maniflow';
 
 export const metadata = {
@@ -41,6 +42,10 @@ export default function Voorbeelden() {
           ))}
         </div>
       </header>
+
+      <div className="shell">
+        <Bovenleiding />
+      </div>
 
       <div className="shell" style={{ paddingBottom: '3rem' }}>
         {examples.map((e, i) => (
