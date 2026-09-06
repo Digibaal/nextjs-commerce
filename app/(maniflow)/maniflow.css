@@ -1294,3 +1294,11 @@ h2.big {
   stroke: var(--ink);
   stroke-width: 2;
 }
+
+.beeld-frame {
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+  overflow: hidden;
+}
