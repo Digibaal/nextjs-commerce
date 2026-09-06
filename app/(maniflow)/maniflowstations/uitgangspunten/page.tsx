@@ -1,4 +1,5 @@
 import { Annot, Eyebrow } from 'components/maniflow/bits';
+import { InvloedSpectrum } from 'components/maniflow/diagrams';
 import {
   agencyModel,
   audience,
@@ -45,6 +46,7 @@ export default function Uitgangspunten() {
             </h2>
             <p>{agencyModel.intro}</p>
           </div>
+          <InvloedSpectrum />
           <div className="g2 grid" style={{ marginTop: '1.8rem' }}>
             {agencyModel.quadrants.map((q) => (
               <div className="card" key={q.key}>

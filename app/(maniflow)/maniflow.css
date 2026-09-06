@@ -1207,3 +1207,90 @@ h2.big {
 .logrow .field select {
   max-width: none;
 }
+
+/* ============================================================== diagrammen */
+
+.figure {
+  margin: 2.6rem 0;
+  padding: 0;
+}
+.figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.figure figcaption {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rule-soft);
+  max-width: 40rem;
+}
+
+/* tekst in tekeningen */
+.d-t {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--ink);
+}
+.d-s {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  fill: var(--ink-2);
+}
+.d-m {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.13em;
+  fill: var(--ink-3);
+}
+.d-sig {
+  fill: var(--signal);
+}
+.d-sig-s {
+  stroke: var(--signal);
+}
+
+/* lijnwerk */
+.d-box {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+.d-fill {
+  fill: var(--paper-2);
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+.d-line {
+  stroke: var(--ink-3);
+  stroke-width: 1;
+  fill: none;
+}
+.d-rail {
+  stroke: var(--rule);
+  stroke-width: 1;
+  fill: none;
+}
+.d-dash {
+  stroke: var(--ink-3);
+  stroke-width: 1;
+  fill: none;
+  stroke-dasharray: 4 3;
+}
+.d-accent {
+  stroke: var(--signal);
+  stroke-width: 1.6;
+  fill: none;
+}
+.d-node {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 2;
+}

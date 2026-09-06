@@ -5,6 +5,7 @@ import {
   Eyebrow,
   lineColor
 } from 'components/maniflow/bits';
+import { RouteNetwerk } from 'components/maniflow/diagrams';
 import {
   audience,
   brand,
@@ -65,6 +66,7 @@ export default function ManiFlowHome() {
           nu bent, wat de eerstvolgende halte vraagt, en wanneer je mag
           overstappen. Vertraging is geen oordeel.
         </p>
+        <RouteNetwerk />
         <DepartureBoard />
         <div className="cluster" style={{ marginTop: '2rem' }}>
           {phases.map((p) => (

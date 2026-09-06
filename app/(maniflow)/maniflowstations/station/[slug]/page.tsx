@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Annot, MiniRail, lineColor } from 'components/maniflow/bits';
+import { stationDiagrams } from 'components/maniflow/diagrams';
 import {
   getStation,
   neighbours,
@@ -39,6 +40,7 @@ export default async function StationPage({
   const { previous, next } = neighbours(s.slug);
   const stationTools = tools.filter((t) => s.tools.includes(t.slug));
   const colour = lineColor(s.phase);
+  const Diagram = stationDiagrams[s.slug];
 
   return (
     <article>
@@ -142,6 +144,12 @@ export default async function StationPage({
             </p>
           </blockquote>
         </Annot>
+
+        {Diagram ? (
+          <Annot n="—" label="Schema">
+            <Diagram />
+          </Annot>
+        ) : null}
 
         {/* -------------------------------------------- 3. vertaalde claims */}
         <Annot n="03" label="Manifestation Translation">

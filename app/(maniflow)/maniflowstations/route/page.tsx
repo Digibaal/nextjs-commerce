@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { DepartureBoard, Eyebrow, RouteMap } from 'components/maniflow/bits';
+import { Kernlus, RouteNetwerk } from 'components/maniflow/diagrams';
 import { brand, integration } from 'lib/maniflow';
 
 export const metadata = {
@@ -30,7 +31,23 @@ export default function RoutePage() {
       </header>
 
       <section className="shell">
+        <RouteNetwerk />
+      </section>
+
+      <section className="shell">
         <RouteMap />
+      </section>
+
+      <section className="shell section-tight">
+        <Eyebrow>De motor</Eyebrow>
+        <h2 className="big" style={{ marginBottom: '1rem' }}>
+          Lijn C is geen fase maar een lus.
+        </h2>
+        <p className="measure dim" style={{ marginBottom: '1rem' }}>
+          Movement, Evidence en Reroute doorloop je niet één keer. Ze vormen de
+          ronde die je blijft rijden, ook lang nadat het programma is afgelopen.
+        </p>
+        <Kernlus />
       </section>
 
       {/* ------------------------------------------------------------ depot */}
