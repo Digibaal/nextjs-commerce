@@ -1361,11 +1361,17 @@ h2.big {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(9, 11, 14, 0.62);
+  background: rgba(9, 11, 14, 0.7);
+}
+
+/* Een foto met veel eigen kleur vecht met het vermiljoen van de kop. Een
+   tikje kleur eraf en het accent leest weer als accent. */
+.hero-beeld img {
+  filter: saturate(0.82) contrast(1.02);
 }
 
 :root[data-thema='nacht'] .hero-waas {
-  background: rgba(9, 11, 14, 0.66);
+  background: rgba(9, 11, 14, 0.74);
 }
 
 /* ========================================================== sfeerbeelden */

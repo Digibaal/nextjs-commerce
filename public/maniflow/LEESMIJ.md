@@ -48,6 +48,10 @@ je dat om in `app/(maniflow)/maniflowstations/page.tsx`:
 <HeroBeeld src={heroBeeld} uitsnede="50% 50%" />
 ```
 
+Zie je na een `git pull` nog het oude beeld? Dan zit het nieuwe al goed en
+serveert de ontwikkelserver alleen zijn eigen cache. Stop hem met Ctrl+C,
+verwijder de map `.next/cache/images` en start hem opnieuw met `pnpm dev`.
+
 ## Wat werkt hier visueel
 
 - **Breed en rustig.** 21:9 of 16:9. Staande beelden vechten met de
