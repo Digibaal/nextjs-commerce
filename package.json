@@ -4,6 +4,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "preview": "next build && next start",
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "programma": "rm -rf .tmp-doc && tsc lib/maniflow/*.ts --outDir .tmp-doc --module commonjs --target es2022 --skipLibCheck && node -e \"require('fs').writeFileSync('docs/ManiFlowStations-programma.md', require('./.tmp-doc/document').renderProgramDocument())\" && rm -rf .tmp-doc",

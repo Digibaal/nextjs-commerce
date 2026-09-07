@@ -32,6 +32,15 @@ ongewijzigd; ManiFlowStations leeft onder `/maniflowstations`. Wil je het progra
 hoofdpagina zetten, verplaats dan `app/(shop)/page.tsx` naar `app/(shop)/shop/page.tsx` en de
 ManiFlowStations-pagina's een niveau omhoog.
 
+## Lokaal draaien
+
+| Commando       | Wat het doet                                                                                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `pnpm dev`     | Ontwikkelserver. Wijzigingen zijn meteen zichtbaar, maar elke pagina wordt bij het eerste bezoek gecompileerd — navigeren voelt daardoor traag.                    |
+| `pnpm preview` | Bouwt de site en start hem zoals hij live zou draaien. Navigeren is dan zo'n vijftien keer sneller. Geen automatische herlading: na een wijziging opnieuw draaien. |
+
+Gebruik `dev` om te schrijven, `preview` om te kijken.
+
 ## Ontwikkelen
 
 ```bash
