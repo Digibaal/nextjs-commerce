@@ -6,6 +6,7 @@ import {
   lineColor
 } from 'components/maniflow/bits';
 import { RouteNetwerk } from 'components/maniflow/diagrams';
+import { Openingsbeeld } from 'components/maniflow/openingsbeeld';
 import { Brug } from 'components/maniflow/sfeer';
 import {
   audience,
@@ -45,9 +46,10 @@ export default function ManiFlowHome() {
         </div>
       </section>
 
-      <div className="shell">
-        <Brug />
-      </div>
+      {/* Verschijnt zodra public/maniflow/hero.png bestaat, anders slaat de
+          pagina dit blok over. Vul alt in met wat er te zien is; laat het leeg
+          als het beeld puur sfeer is — dan slaan schermlezers het over. */}
+      <Openingsbeeld alt="" />
 
       <div className="shell section">
         <hr className="rule" />
@@ -164,6 +166,10 @@ export default function ManiFlowHome() {
           </table>
         </div>
       </section>
+
+      <div className="shell">
+        <Brug />
+      </div>
 
       {/* ----------------------------------------------------- doelgroep */}
       <section className="shell section-tight">

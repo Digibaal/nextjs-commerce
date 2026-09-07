@@ -20,6 +20,34 @@ Alles in deze map is publiek bereikbaar op de site. Een bestand
    />;
    ```
 
+## Het openingsbeeld
+
+Eén bestandsnaam is speciaal: `hero.png` (of `hero.jpg`, `hero.jpeg`,
+`hero.webp`, `hero.avif`). Staat dat bestand in deze map, dan verschijnt het
+vanzelf over de volle breedte onder de kop van `/maniflowstations`. Staat het
+er niet, dan slaat de pagina het blok over — geen leeg kader, geen kapot
+beeld.
+
+Twee dingen die je zelf nog aanzet in
+`app/(maniflow)/maniflowstations/page.tsx`:
+
+```tsx
+<Openingsbeeld
+  alt="Wat er te zien is, in één zin."
+  caption="Optioneel onderschrift."
+  toon="gedempt"
+/>
+```
+
+- **`alt`** staat nu leeg. Dat klopt zolang het beeld puur sfeer is;
+  schermlezers slaan het dan over. Draagt het beeld betekenis, vul het dan in.
+- **`toon="gedempt"`** haalt kleur uit het beeld zodat het vermiljoen van de
+  site het enige felle accent blijft. Laat het weg voor het beeld zoals het is.
+
+De verhouding schaalt mee: 4:3 op telefoon, 16:9 op tablet, 21:9 op breed.
+Een liggend beeld werkt dus het best; de onderste en bovenste rand worden op
+telefoon weggesneden.
+
 ## Wat werkt hier visueel
 
 - **Breed en rustig.** 21:9 of 16:9. Staande beelden vechten met de

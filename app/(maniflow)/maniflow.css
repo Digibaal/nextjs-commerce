@@ -1303,6 +1303,53 @@ h2.big {
   overflow: hidden;
 }
 
+/* ------------------------------------------------------- openingsbeeld */
+/* Volle breedte onder de hero. Op smalle schermen staander, anders wordt
+   het een streep; op breed 21:9 zodat de vertrekhal ruimte houdt. */
+
+.openingsbeeld {
+  margin: clamp(2.5rem, 6vw, 4rem) 0 0;
+  padding: 0;
+}
+.openingsbeeld-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--paper-2);
+  border-block: 1px solid var(--rule);
+  overflow: hidden;
+}
+@media (min-width: 40rem) {
+  .openingsbeeld-frame {
+    aspect-ratio: 16 / 9;
+  }
+}
+@media (min-width: 64rem) {
+  .openingsbeeld-frame {
+    aspect-ratio: 21 / 9;
+  }
+}
+.openingsbeeld figcaption {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-top: 1rem;
+  max-width: 40rem;
+}
+
+/* Optioneel: haal de kleur eruit zodat het beeld het vermiljoen niet
+   beconcurreert. Zet toon="gedempt" op het component. */
+.openingsbeeld.is-gedempt .openingsbeeld-frame img {
+  filter: saturate(0.68) contrast(1.05);
+}
+@media (prefers-color-scheme: dark) {
+  .openingsbeeld.is-gedempt .openingsbeeld-frame img {
+    filter: saturate(0.62) contrast(1.02) brightness(0.88);
+  }
+}
+
 /* ========================================================== sfeerbeelden */
 
 .sfeer-frame {
