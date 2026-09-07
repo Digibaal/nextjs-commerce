@@ -24,9 +24,9 @@ Alles in deze map is publiek bereikbaar op de site. Een bestand
 
 Eén bestandsnaam is speciaal: `hero.png` (of `hero.jpg`, `hero.jpeg`,
 `hero.webp`, `hero.avif`). Staat dat bestand in deze map, dan komt het achter
-de kop van `/maniflowstations` te staan en klapt de hero om naar wit op
-donker. Staat het er niet, dan blijft de hero gewoon papier met inkt — geen
-leeg kader, geen kapot beeld.
+de kop van `/maniflowstations` te staan. Staat het er niet, dan valt de pagina
+terug op een getekend nachtstation — geen leeg kader, geen kapot beeld. Je
+eigen beeld wint altijd; je hoeft nergens iets aan of uit te zetten.
 
 Drie dingen om te weten:
 

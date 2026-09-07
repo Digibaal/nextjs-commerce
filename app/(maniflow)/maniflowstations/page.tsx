@@ -6,6 +6,7 @@ import {
   lineColor
 } from 'components/maniflow/bits';
 import { RouteNetwerk } from 'components/maniflow/diagrams';
+import { Nachtstation } from 'components/maniflow/nachtstation';
 import { HeroBeeld, vindHeroBeeld } from 'components/maniflow/openingsbeeld';
 import { Brug } from 'components/maniflow/sfeer';
 import {
@@ -20,15 +21,15 @@ import {
 } from 'lib/maniflow';
 
 export default function ManiFlowHome() {
-  /* Het openingsbeeld staat achter de kop zodra public/maniflow/hero.png
-     bestaat. Is dat er niet, dan blijft de hero gewoon papier met inkt. */
+  /* Achter de kop staat het getekende nachtstation. Zet je een eigen foto
+     neer als public/maniflow/hero.png, dan neemt die het over. */
   const heroBeeld = vindHeroBeeld();
 
   return (
     <>
       {/* ---------------------------------------------------------- hero */}
-      <section className={heroBeeld ? 'hero has-beeld' : 'hero'}>
-        {heroBeeld ? <HeroBeeld src={heroBeeld} /> : null}
+      <section className="hero has-beeld">
+        {heroBeeld ? <HeroBeeld src={heroBeeld} /> : <Nachtstation />}
         <div className="shell">
           <p className="mono faint" style={{ marginBottom: '2rem' }}>
             Vertrekhal · 12 stations · 4 lijnen · geen garanties

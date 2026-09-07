@@ -1344,7 +1344,19 @@ h2.big {
   pointer-events: none;
 }
 
-/* Een vlakke inktwas, geen verloop: het beeld zakt weg, de letters komen op. */
+/* De getekende versie bepaalt zijn eigen donkerte en heeft geen waas nodig. */
+.nachtstation {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+/* Een vlakke inktwas, geen verloop: het beeld zakt weg, de letters komen op.
+   Ligt alleen over een eigen foto — de tekening heeft hem niet nodig. */
 .hero-waas {
   position: absolute;
   inset: 0;
