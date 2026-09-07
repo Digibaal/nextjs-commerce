@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Themaschakelaar } from 'components/maniflow/thema';
 
 const nav = [
   { href: '/maniflowstations/route', label: 'De route' },
@@ -24,6 +25,7 @@ export function Topbar() {
             </Link>
           ))}
         </nav>
+        <Themaschakelaar />
       </div>
     </header>
   );

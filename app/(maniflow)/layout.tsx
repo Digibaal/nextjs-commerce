@@ -17,8 +17,20 @@ export const metadata = {
 
 export default function ManiFlowLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="nl" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html
+      lang="nl"
+      data-thema="dag"
+      suppressHydrationWarning
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
+    >
       <body className="mf">
+        {/* Zet de opgeslagen keuze meteen, voordat er iets geverfd wordt. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('mf-thema');if(t==='nacht'||t==='dag')document.documentElement.dataset.thema=t}catch(e){}"
+          }}
+        />
         <a
           href="#inhoud"
           className="mono"

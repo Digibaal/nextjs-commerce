@@ -40,28 +40,28 @@
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* nachtbord */
-    --paper: #0d0f12;
-    --paper-2: #14171c;
-    --paper-3: #1c2027;
-    --ink: #ece5d7;
-    --ink-2: #a7a294;
-    --ink-3: #6f6a5d;
-    --rule: #2b2f37;
-    --rule-soft: #21252b;
-    --signal: #e0703c;
-    --amber: #e0b552;
-    --amber-bg: #2a2313;
+/* Nachtbord. Bewust niet aan de systeeminstelling gekoppeld: de site staat
+   standaard op dagbord en de bezoeker zet hem zelf om met de schakelaar in de
+   kopregel. Die keuze blijft in deze browser bewaard. */
+:root[data-thema='nacht'] {
+  --paper: #0d0f12;
+  --paper-2: #14171c;
+  --paper-3: #1c2027;
+  --ink: #ece5d7;
+  --ink-2: #a7a294;
+  --ink-3: #6f6a5d;
+  --rule: #2b2f37;
+  --rule-soft: #21252b;
+  --signal: #e0703c;
+  --amber: #e0b552;
+  --amber-bg: #2a2313;
 
-    --line-a: #4e9b8b;
-    --line-b: #e0703c;
-    --line-c: #6f9ada;
-    --line-d: #c9a05c;
+  --line-a: #4e9b8b;
+  --line-b: #e0703c;
+  --line-c: #6f9ada;
+  --line-d: #c9a05c;
 
-    color-scheme: dark;
-  }
+  color-scheme: dark;
 }
 
 * {
@@ -1364,10 +1364,8 @@ h2.big {
   background: rgba(9, 11, 14, 0.62);
 }
 
-@media (prefers-color-scheme: dark) {
-  .hero-waas {
-    background: rgba(9, 11, 14, 0.66);
-  }
+:root[data-thema='nacht'] .hero-waas {
+  background: rgba(9, 11, 14, 0.66);
 }
 
 /* ========================================================== sfeerbeelden */
@@ -1436,4 +1434,67 @@ h2.big {
   stroke: var(--paper-2);
   stroke-width: 1;
   fill: none;
+}
+
+/* ============================================================= schakelaar */
+
+/* Twee standen, als een hendel. Welke aanstaat komt uit het data-attribuut op
+   <html> en niet uit React, zodat de goede stand er al staat voordat de
+   pagina interactief is. */
+.thema {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  margin-left: auto;
+  flex-shrink: 0;
+  border: 1px solid var(--rule);
+}
+.thema button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 0.42rem 0.62rem;
+  line-height: 1;
+  transition: color 120ms ease;
+}
+.thema button:hover {
+  color: var(--ink);
+}
+:root:not([data-thema='nacht']) .thema button[data-stand='dag'],
+:root[data-thema='nacht'] .thema button[data-stand='nacht'] {
+  background: var(--ink);
+  color: var(--paper);
+}
+.thema button:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+/* Op een smal scherm past merk, menu en schakelaar niet op één regel. Het menu
+   krijgt dan een eigen rij in plaats van weggedrukt te worden. */
+@media (max-width: 48rem) {
+  .topbar-in {
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 0;
+    padding-block: 0.55rem;
+    gap: 0.9rem;
+  }
+  .brandmark {
+    border-right: 0;
+    padding-right: 0;
+  }
+  .thema {
+    order: 2;
+  }
+  .topnav {
+    order: 3;
+    flex-basis: 100%;
+  }
 }
