@@ -6,7 +6,7 @@ import {
   lineColor
 } from 'components/maniflow/bits';
 import { RouteNetwerk } from 'components/maniflow/diagrams';
-import { Openingsbeeld } from 'components/maniflow/openingsbeeld';
+import { HeroBeeld, vindHeroBeeld } from 'components/maniflow/openingsbeeld';
 import { Brug } from 'components/maniflow/sfeer';
 import {
   audience,
@@ -20,10 +20,15 @@ import {
 } from 'lib/maniflow';
 
 export default function ManiFlowHome() {
+  /* Het openingsbeeld staat achter de kop zodra public/maniflow/hero.png
+     bestaat. Is dat er niet, dan blijft de hero gewoon papier met inkt. */
+  const heroBeeld = vindHeroBeeld();
+
   return (
     <>
       {/* ---------------------------------------------------------- hero */}
-      <section className="hero">
+      <section className={heroBeeld ? 'hero has-beeld' : 'hero'}>
+        {heroBeeld ? <HeroBeeld src={heroBeeld} /> : null}
         <div className="shell">
           <p className="mono faint" style={{ marginBottom: '2rem' }}>
             Vertrekhal · 12 stations · 4 lijnen · geen garanties
@@ -45,11 +50,6 @@ export default function ManiFlowHome() {
           </div>
         </div>
       </section>
-
-      {/* Verschijnt zodra public/maniflow/hero.png bestaat, anders slaat de
-          pagina dit blok over. Vul alt in met wat er te zien is; laat het leeg
-          als het beeld puur sfeer is — dan slaan schermlezers het over. */}
-      <Openingsbeeld alt="" />
 
       <div className="shell section">
         <hr className="rule" />

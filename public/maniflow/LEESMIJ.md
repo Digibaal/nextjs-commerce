@@ -23,30 +23,30 @@ Alles in deze map is publiek bereikbaar op de site. Een bestand
 ## Het openingsbeeld
 
 Eén bestandsnaam is speciaal: `hero.png` (of `hero.jpg`, `hero.jpeg`,
-`hero.webp`, `hero.avif`). Staat dat bestand in deze map, dan verschijnt het
-vanzelf over de volle breedte onder de kop van `/maniflowstations`. Staat het
-er niet, dan slaat de pagina het blok over — geen leeg kader, geen kapot
-beeld.
+`hero.webp`, `hero.avif`). Staat dat bestand in deze map, dan komt het achter
+de kop van `/maniflowstations` te staan en klapt de hero om naar wit op
+donker. Staat het er niet, dan blijft de hero gewoon papier met inkt — geen
+leeg kader, geen kapot beeld.
 
-Twee dingen die je zelf nog aanzet in
-`app/(maniflow)/maniflowstations/page.tsx`:
+Drie dingen om te weten:
+
+- **De bovenste helft van je beeld valt weg.** De beeldlaag is ruim twee keer
+  zo hoog als de hero en hangt aan de onderkant, zodat de uitsnede op elk
+  scherm hetzelfde doet: breed, staand, telefoon. Zet dus niets wat je wilt
+  laten zien in de bovenhelft van het bestand.
+- **Geen tekst in het beeld.** De kop staat er in echte letters overheen. Een
+  woordmerk dat in het beeld gebakken zit botst daarmee, en zoekmachines en
+  schermlezers zien het niet.
+- **Er ligt een inktwaas van 62% overheen.** Zonder die waas is de kop niet te
+  lezen. Reken er dus op dat je beeld donkerder en rustiger wordt dan het in
+  je map staat; een beeld dat al druk is, wordt daar niet beter van.
+
+Wil je toch het midden van je beeld tonen in plaats van de onderkant, dan zet
+je dat om in `app/(maniflow)/maniflowstations/page.tsx`:
 
 ```tsx
-<Openingsbeeld
-  alt="Wat er te zien is, in één zin."
-  caption="Optioneel onderschrift."
-  toon="gedempt"
-/>
+<HeroBeeld src={heroBeeld} uitsnede="50% 50%" />
 ```
-
-- **`alt`** staat nu leeg. Dat klopt zolang het beeld puur sfeer is;
-  schermlezers slaan het dan over. Draagt het beeld betekenis, vul het dan in.
-- **`toon="gedempt"`** haalt kleur uit het beeld zodat het vermiljoen van de
-  site het enige felle accent blijft. Laat het weg voor het beeld zoals het is.
-
-De verhouding schaalt mee: 4:3 op telefoon, 16:9 op tablet, 21:9 op breed.
-Een liggend beeld werkt dus het best; de onderste en bovenste rand worden op
-telefoon weggesneden.
 
 ## Wat werkt hier visueel
 

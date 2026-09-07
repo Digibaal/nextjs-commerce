@@ -2,12 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import Image from 'next/image';
 
-/* Openingsbeeld van de vertrekhal: volle breedte, hairline boven en onder.
+/* Het openingsbeeld van de vertrekhal: volle breedte, achter de kop.
 
    Zet je bestand neer als public/maniflow/hero.png (of .jpg, .jpeg, .webp,
-   .avif) en het verschijnt vanzelf boven aan de pagina. Staat er niets, dan
-   slaat de pagina het blok over in plaats van een leeg kader te tonen — de
-   site blijft dus heel zolang het bestand nog niet gepusht is. */
+   .avif) en het verschijnt vanzelf. Staat er niets, dan valt de hero terug op
+   papier met donkere letters — de site blijft dus heel zolang het bestand nog
+   niet gepusht is. */
 
 const KANDIDATEN = [
   'hero.png',
@@ -17,45 +17,40 @@ const KANDIDATEN = [
   'hero.avif'
 ];
 
-function vindOpeningsbeeld(): string | null {
+export function vindHeroBeeld(): string | null {
   const map = path.join(process.cwd(), 'public', 'maniflow');
   for (const naam of KANDIDATEN) {
-    if (fs.existsSync(path.join(map, naam))) return `/maniflow/${naam}`;
+    if (fs.existsSync(path.join(map, naam))) return '/maniflow/' + naam;
   }
   return null;
 }
 
-export function Openingsbeeld({
-  alt,
-  caption,
-  toon = 'puur'
+export function HeroBeeld({
+  src,
+  alt = '',
+  /* Welk deel van het beeld blijft staan. De laag is anderhalf keer zo hoog
+     als de hero en hangt aan de onderkant, dus de bovenkant van je beeld valt
+     altijd weg — op elk schermformaat, ook staand op een telefoon. Zet hier
+     iets anders neer als je juist het midden wilt tonen. */
+  uitsnede = '50% 100%'
 }: {
-  /** beschrijving voor wie het beeld niet ziet — geen "afbeelding van" */
-  alt: string;
-  caption?: string;
-  /** "gedempt" haalt kleur eruit zodat het beeld het vermiljoen niet beconcurreert */
-  toon?: 'puur' | 'gedempt';
+  src: string;
+  alt?: string;
+  uitsnede?: string;
 }) {
-  const src = vindOpeningsbeeld();
-  if (!src) return null;
-
   return (
-    <figure
-      className={
-        toon === 'gedempt' ? 'openingsbeeld is-gedempt' : 'openingsbeeld'
-      }
-    >
-      <div className="openingsbeeld-frame">
+    <>
+      <div className="hero-beeld">
         <Image
           src={src}
           alt={alt}
           fill
           priority
           sizes="100vw"
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover', objectPosition: uitsnede }}
         />
       </div>
-      {caption ? <figcaption className="shell">{caption}</figcaption> : null}
-    </figure>
+      <div className="hero-waas" />
+    </>
   );
 }

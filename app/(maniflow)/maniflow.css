@@ -1307,46 +1307,54 @@ h2.big {
 /* Volle breedte onder de hero. Op smalle schermen staander, anders wordt
    het een streep; op breed 21:9 zodat de vertrekhal ruimte houdt. */
 
-.openingsbeeld {
-  margin: clamp(2.5rem, 6vw, 4rem) 0 0;
-  padding: 0;
-}
-.openingsbeeld-frame {
+/* ------------------------------------------------- hero met openingsbeeld */
+
+/* Het beeld ligt achter de kop. De themavariabelen worden hier omgeklapt naar
+   nachtbord, zodat elk kind — kop, lede, knoppen, hairlines — vanzelf licht
+   wordt zonder dat er ergens een tweede kleur hardgecodeerd staat. */
+.hero.has-beeld {
+  --paper: #0d0f12;
+  --paper-2: #14171c;
+  --paper-3: #1c2027;
+  --ink: #f4efe6;
+  --ink-2: rgba(244, 239, 230, 0.82);
+  --ink-3: rgba(244, 239, 230, 0.6);
+  --rule: rgba(244, 239, 230, 0.32);
+  --rule-soft: rgba(244, 239, 230, 0.16);
+  --signal: #f0885a;
+
   position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  background: var(--paper-2);
-  border-block: 1px solid var(--rule);
+  isolation: isolate;
   overflow: hidden;
-}
-@media (min-width: 40rem) {
-  .openingsbeeld-frame {
-    aspect-ratio: 16 / 9;
-  }
-}
-@media (min-width: 64rem) {
-  .openingsbeeld-frame {
-    aspect-ratio: 21 / 9;
-  }
-}
-.openingsbeeld figcaption {
-  font-family: var(--mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-top: 1rem;
-  max-width: 40rem;
+  color: var(--ink);
+  padding-block: clamp(5rem, 16vw, 11rem) clamp(3.5rem, 8vw, 6rem);
 }
 
-/* Optioneel: haal de kleur eruit zodat het beeld het vermiljoen niet
-   beconcurreert. Zet toon="gedempt" op het component. */
-.openingsbeeld.is-gedempt .openingsbeeld-frame img {
-  filter: saturate(0.68) contrast(1.05);
+/* De beeldlaag is ruim twee keer zo hoog als de hero en hangt aan de
+   onderkant. Daardoor valt de bovenste helft van het beeld altijd buiten
+   beeld — op een breed scherm net zo goed als staand op een telefoon. Zet dus
+   niets wat je wilt laten zien in de bovenhelft van je bestand. */
+.hero-beeld {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 210%;
+  z-index: -2;
+  pointer-events: none;
 }
+
+/* Een vlakke inktwas, geen verloop: het beeld zakt weg, de letters komen op. */
+.hero-waas {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(9, 11, 14, 0.62);
+}
+
 @media (prefers-color-scheme: dark) {
-  .openingsbeeld.is-gedempt .openingsbeeld-frame img {
-    filter: saturate(0.62) contrast(1.02) brightness(0.88);
+  .hero-waas {
+    background: rgba(9, 11, 14, 0.66);
   }
 }
 
